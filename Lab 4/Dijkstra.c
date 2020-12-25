@@ -1,44 +1,47 @@
+/*
+Given a graph find shortest paths from source to all nodes in the graph using Dijkstraâ€™s shortest path algorithm.
+*/
 #include <stdio.h>
 #define infinity 999
 void dij(int n,int v,int cost[10][10],int dist[])
 {
- int i,u,count,w,flag[10],min;
- for(i=1;i<=n;i++)
-  flag[i]=0,dist[i]=cost[v][i];
- count=2;
- while(count<=n)
- {
-  min=99;
-  for(w=1;w<=n;w++)
-   if(dist[w]<min && !flag[w])
-    min=dist[w],u=w;
-  flag[u]=1;
-  count++;
-  for(w=1;w<=n;w++)
-   if((dist[u]+cost[u][w]<dist[w]) && !flag[w])
-    dist[w]=dist[u]+cost[u][w];
- }
+Â int i,u,count,w,flag[10],min;
+Â for(i=1;i<=n;i++)
+Â  flag[i]=0,dist[i]=cost[v][i];
+Â count=2;
+Â while(count<=n)
+Â {
+Â  min=99;
+Â  for(w=1;w<=n;w++)
+Â  Â if(dist[w]<min && !flag[w])
+Â  Â  min=dist[w],u=w;
+Â  flag[u]=1;
+Â  count++;
+Â  for(w=1;w<=n;w++)
+Â  Â if((dist[u]+cost[u][w]<dist[w]) && !flag[w])
+Â  Â  dist[w]=dist[u]+cost[u][w];
+Â }
 }
 
 void main()
 {
- int n,v,i,j,cost[10][10],dist[10];
+Â int n,v,i,j,cost[10][10],dist[10];
 
- printf("\n Enter the number of nodes:");
- scanf("%d",&n);
- printf("\n Enter the cost matrix:\n");
- for(i=1;i<=n;i++)
-  for(j=1;j<=n;j++)
-  {
-   scanf("%d",&cost[i][j]);
-   if(cost[i][j]==0)
-    cost[i][j]=infinity;
-  }
- printf("\n Enter the source node:");
- scanf("%d",&v);
- dij(n,v,cost,dist);
- printf("\n Shortest path:\n");
- for(i=1;i<=n;i++)
-  if(i!=v)
- printf("%d->%d,cost=%d\n",v,i,dist[i]);
+Â printf("\n Enter the number of nodes:");
+Â scanf("%d",&n);
+Â printf("\n Enter the cost matrix:\n");
+Â for(i=1;i<=n;i++)
+Â  for(j=1;j<=n;j++)
+Â  {
+Â  Â scanf("%d",&cost[i][j]);
+Â  Â if(cost[i][j]==0)
+Â  Â  cost[i][j]=infinity;
+Â  }
+Â printf("\n Enter the source node:");
+Â scanf("%d",&v);
+Â dij(n,v,cost,dist);
+Â printf("\n Shortest path:\n");
+Â for(i=1;i<=n;i++)
+Â  if(i!=v)
+Â printf("%d->%d,cost=%d\n",v,i,dist[i]);
 }
