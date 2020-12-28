@@ -1,4 +1,6 @@
-
+/*
+Write a program to implement internet checksum for error correction and detection.
+*/
 #include<stdio.h>
 #include<string.h>
 int checksum(int fl)
@@ -9,29 +11,29 @@ int checksum(int fl)
 	scanf("%s",in);
 	if(strlenin)%2!=0)
 	{
-        	n=(strlen(in)+1)/2;
+Â  Â  Â  Â  	n=(strlen(in)+1)/2;
 	}
 	else
 	{
-        	n=n=(strlen(in))/2;
+Â  Â  Â  Â  	n=n=(strlen(in))/2;
 	}
 	for(i=0;i<n;i++)
-    	{
+Â  Â  	{
 		temp=in[i*2];
 		temp=(temp*256)+in[(i*2)+1];
 		sum=sum+temp;
-    	}
+Â  Â  	}
 	if(fl==1)
-    	{
+Â  Â  	{
 		printf("Enter the checksum value \n");
 		scanf ("%x", &temp);
 		sum+=temp;
-    	}
+Â  Â  	}
 	if(sum%65536!=0)
-    	{
-        	n=sum%65536;
+Â  Â  	{
+Â  Â  Â  Â  	n=sum%65536;
 		sum=(sum/65536) + n;
-    	}
+Â  Â  	}
 	sum=65535-sum;
 	printf("%x\n",sum);
 	return sum;
@@ -43,7 +45,7 @@ void main()
 		printf("1.Encode \n2.Decode \n3.Exit \n");
 		scanf("%d",&ch);
 		switch(ch)
-        	{
+Â  Â  Â  Â  	{
 
 			case 1: printf("Enter the string \n");
 				  sum=checksum(0);
@@ -58,8 +60,8 @@ void main()
 				   break;
 			case 3: break;
 			default: printf("Invalid option, try again \n");
-    	   	 }
-    	}
+Â  Â  	Â  Â 	 }
+Â  Â  	}
 while(ch!=3);
 }
 
