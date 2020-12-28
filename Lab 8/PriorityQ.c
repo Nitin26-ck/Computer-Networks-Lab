@@ -1,3 +1,8 @@
+/*
+Packets from different flows arrive at a switch or router for processing. 
+A good scheduling technique treats the different flows in a fair and appropriate manner. 
+Implement priority queuing as a technique to improve Quality of Service.
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -7,26 +12,26 @@ void delete_by_priority(int);
 void create();
 void check(int);
 void display_pqueue();
- 
+Â 
 int pri_que[MAX];
 int front, rear;
- 
+Â 
 void main()
 {
     int n, ch;
- 
+Â 
     printf("\n1 - Insert an element into queue");
     printf("\n2 - Delete an element from queue");
     printf("\n3 - Display queue elements");
     printf("\n4 - Exit");
- 
+Â 
     create();
- 
+Â 
     while (1)
     {
         printf("\nEnter your choice : ");    
         scanf("%d", &ch);
- 
+Â 
         switch (ch)
         {
         case 1: 
@@ -49,13 +54,13 @@ void main()
         }
     }
 }
- 
+Â 
 /* Function to create an empty priority queue */
 void create()
 {
     front = rear = -1;
 }
- 
+Â 
 /* Function to insert value into priority queue */
 void insert_by_priority(int data)
 {
@@ -75,12 +80,12 @@ void insert_by_priority(int data)
         check(data);
     rear++;
 }
- 
+Â 
 /* Function to check priority and place element */
 void check(int data)
 {
     int i,j;
- 
+Â 
     for (i = 0; i <= rear; i++)
     {
         if (data >= pri_que[i])
@@ -95,18 +100,18 @@ void check(int data)
     }
     pri_que[i] = data;
 }
- 
+Â 
 /* Function to delete an element from queue */
 void delete_by_priority(int data)
 {
     int i;
- 
+Â 
     if ((front==-1) && (rear==-1))
     {
         printf("\nQueue is empty no elements to delete");
         return;
     }
- 
+Â 
     for (i = 0; i <= rear; i++)
     {
         if (data == pri_que[i])
@@ -115,10 +120,10 @@ void delete_by_priority(int data)
             {
                 pri_que[i] = pri_que[i + 1];
             }
- 
+Â 
         pri_que[i] = -99;
         rear--;
- 
+Â 
         if (rear == -1) 
             front = -1;
         return;
@@ -126,7 +131,7 @@ void delete_by_priority(int data)
     }
     printf("\n%d not found in queue to delete", data);
 }
- 
+Â 
 /* Function to display queue elements */
 void display_pqueue()
 {
@@ -135,12 +140,12 @@ void display_pqueue()
         printf("\nQueue is empty");
         return;
     }
- 
+Â 
     for (; front <= rear; front++)
   
   {
         printf(" %d ", pri_que[front]);
     }
- 
+Â 
     front = 0;
 }
