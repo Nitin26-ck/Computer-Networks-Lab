@@ -1,6 +1,8 @@
+/*
+Write a program to implement Go Back N sliding window protocol
+*/
 
-#include<stdio.h>
- 
+#include<stdio.h> 
 int main()
 {
     int w,i,f,frames[50];
