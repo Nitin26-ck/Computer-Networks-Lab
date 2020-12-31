@@ -1,3 +1,6 @@
+/*
+Write a program to implement the Diffie-Hellman Key Exchange algorithm. 
+*/
 
 #include <stdio.h>
 
